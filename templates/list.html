@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
+    /** This is just basic **/
+    
+    {% for story in myStory %}
+        <li>{{story.id}} {{ story.title }} {{ story.story_text }} {{ story.criteria }} {{ story.business_value }} {{story.estimation}} {{story.status}}</li>
+    {% endfor %}
 
 </body>
 </html>
