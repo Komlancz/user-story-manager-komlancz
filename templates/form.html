@@ -10,11 +10,11 @@
 
     <form method="post" action="/story">
         <dl><label>Story title</label></dl>
-        <dl><input  id="story_title" type="text" name="story_title", size="50" /></dl>
+        <dl><input  id="story_title" type="text" name="story_title", size="20" /></dl>
         <dl><label>User Story</label></dl>
-        <dl><textarea  id= "story" name="story" cols="50" rows="10"></textarea></dl>
+        <dl><textarea  id= "story" name="story" cols="20" rows="10"></textarea></dl>
         <dl><label>Acceptance Criteria</label></dl>
-        <dl><textarea title="criteria" name="criteria" id="criteria" cols="50" rows="10"></textarea></dl>
+        <dl><textarea title="criteria" name="criteria" id="criteria" cols="20" rows="10"></textarea></dl>
         <dl><label>Business Value</label></dl>
         <dl><input id="business_value" type="number" name="business_value" min="100" max="1500" step="100" value="100" /></dl>
         <dl><label>Estimation (h)</label></dl>
@@ -29,7 +29,7 @@
                 <option>Done</option>
             </select>
         </dl>
-        <dl><input id="submit_story" type="submit" name="submit_story"></dl>
+        <dl><input id="submit_story" type="submit" name="submit_story" value="Save"></dl>
     </form>
 </body>
 </html>
