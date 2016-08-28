@@ -1,10 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import update
 
 app = Flask(__name__)
-password = input("Your database password: ")
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://komlancz:{}@localhost/user-stories'.format(password)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://komlancz:123@localhost/user-stories'
 db = SQLAlchemy(app)
 
 
@@ -35,17 +33,22 @@ def index():
 '''Make a new story and append the database with it'''
 @app.route('/story', methods=['POST'])
 def story():
-    new_story = Story(request.form['story_title'], request.form['story'], request.form['criteria'], request.form['business_value'], float(request.form['estimation']), request.form['status'])
+    new_story = Story(request.form['story_title'],
+                      request.form['story'],
+                      request.form['criteria'],
+                      request.form['business_value'],
+                      float(request.form['estimation']),
+                      request.form['status'])
     db.session.add(new_story)
     db.session.commit()
     return redirect(url_for('index'))
 
 
-@app.route('/story/<story_id>', methods=['POST'])
+@app.route('/story/<story_id>', methods=['PUT'])
 def edit_story(story_id):
     myID = Story.query.filter_by(id=story_id).first()
-    myID.title = 'ez a proba'
-    db.session.commit()
+    # myID.title = request.form['title']
+    # db.session.commit()
     return redirect(url_for('index'))
 
 
